@@ -101,6 +101,6 @@ This API returns a list of employees with the following data:
 
 Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Author
+## Dylan
 
 Created as part of Angular learning assignment - demonstrating HttpClient, Observables, and Bootstrap integration.
