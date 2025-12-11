@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <div class="header-section mb-4">
+    <h1 class="text-center mb-4">Employees data from Api</h1>
+    <p class="text-center text-muted">List of all employees from the database</p>
+  </div>
+
+  
+  <div *ngIf="loading" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-3">Loading employees...</p>
+  </div>
+
+
+  <div *ngIf="error && !loading" class="alert alert-danger" role="alert">
+    {{ error }}
+  </div>
+
+  
+  <div *ngIf="!loading && !error" class="table-responsive">
+    <table class="table table-bordered table-hover employee-table">
+      <thead class="table-header">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Employee Name</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr *ngFor="let employee of employees" class="employee-row">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.employee_name }}</td>
+          <td>${{ employee.employee_salary | number }}</td>
+          <td>{{ employee.employee_age }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+ 
+  <div *ngIf="!loading && !error" class="text-center mt-3">
+    <p class="text-muted">Total Employees: <strong>{{ employees.length }}</strong></p>
+  </div>
+</div>
